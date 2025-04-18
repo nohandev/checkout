@@ -4,7 +4,7 @@ import { CreditCard, BankSlip, Pix } from '@/app/components/ui/paymentsMethods'
 
 export default function Checkout() {
   return (
-    <section className='bg-white p-6 rounded-md flex flex-col'>
+    <section className='bg-white p-6 rounded-md flex flex-col w-full max-w-[750px]'>
       <div>
         <h1 className='text-3xl font-bold'>Finalizar Compra</h1>
         <h2 className='text-xl text-gray-500'>Escolha seu método de pagamento preferido</h2>
