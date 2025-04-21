@@ -1,6 +1,7 @@
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { QrCode, RefreshCcw, Clipboard, CircleAlert } from 'lucide-react'
+import BankSlipForm from '@/app/components/ui/bankSlipForm'
 
 export function CreditCard() {
   return (
@@ -21,6 +22,8 @@ export function BankSlip() {
           O boleto bancário vence em 3 dias úteis. Após o pagamento, a compensação pode levar até 3 dias úteis.
         </AlertDescription>
       </Alert>
+
+      <BankSlipForm/>
     </div>
   )
 }
