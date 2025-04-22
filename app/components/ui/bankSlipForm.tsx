@@ -4,24 +4,26 @@ import { Form, FormControl, FormField, FormLabel, FormItem, FormMessage } from '
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 const formSchema = z.object({
   cpf: z
-    .string(),
+    .string()
+    .nonempty('Preencha o CPF por favor')
+    .length(11, 'Insira um CPF válido'),
   name: z
     .string()
+    .nonempty('Preencha nome do pagador')
 })
 
 export default function BankSlipForm() {
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       cpf: '',
       name: ''
-    }
+    },
   })
 
   const onSubmit = (e: z.infer<typeof formSchema>) => {
@@ -40,7 +42,12 @@ export default function BankSlipForm() {
             <FormItem>
               <FormLabel>CPF</FormLabel>
               <FormControl>
-                <Input placeholder='000.000.000-00' {...field}/>
+                <Input 
+                  {...field}
+                  placeholder='000.000.000-00' 
+                  type='text'
+                  maxLength={12} 
+                  />
               </FormControl>
               <FormMessage/>
             </FormItem>
@@ -53,7 +60,9 @@ export default function BankSlipForm() {
             <FormItem>
               <FormLabel>Nome completo</FormLabel>
               <FormControl>
-                <Input placeholder='Nome completo do pagador' {...field}/>
+                <Input 
+                  placeholder='Nome completo do pagador' 
+                  {...field}/>
               </FormControl>
               <FormMessage/>
             </FormItem>
