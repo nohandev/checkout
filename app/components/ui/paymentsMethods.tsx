@@ -2,11 +2,12 @@ import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { QrCode, RefreshCcw, Clipboard, CircleAlert } from 'lucide-react'
 import BankSlipForm from '@/app/components/ui/bankSlipForm'
+import CreditCardForm from '@/app/components/ui/creditCardForm'
 
 export function CreditCard() {
   return (
     <div className='mt-6'>
-      a
+      <CreditCardForm/>
     </div>
   )
 }
